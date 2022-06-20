@@ -1,0 +1,296 @@
+<html>
+	<head></head>
+	<body style="background-color: black;">
+	<div id="juego">
+		<div id="piso_1" style="margin-top: 330px;"></div>
+		<div id="piso_2" style="margin-top: 330px; margin-left: 500px;"></div>
+		<div id="piso_3" style="margin-top: 230px; margin-left: 250px;"></div>
+		<div id="piso_4" style="margin-top: 140px; margin-left: 0px;"></div>
+		<div id="piso_5" style="margin-top: 140px; margin-left: 500px;"></div>
+		<img id="mario" src="mariosiuuuuu.png" style="top: 380px; left: 0px;">
+		<img id="sonic" src="sonicturbo.png" style="top: 380px; left: 660px;">
+		<div id="piso"></div>
+	</div>
+	<input type="button" onclick="hola()">
+	<input type="button" onclick="salto()" hidden id="btnsalto">
+	<input type="button" onclick="izquierdita()" hidden id="btnizquierda">
+	<input type="button" onclick="derecha()" hidden id="btnderecha">
+	<input type="button" onclick="grave_piso1()" hidden id="btngravedad_piso1">
+	<input type="button" onclick="grave_piso2()" hidden id="btngravedad_piso2">
+		<style>
+		#piso{
+		position: absolute;
+		width: 700px;
+		height: 50px;
+		background-color: white;
+		margin-top: 450px;
+		}
+		#juego{
+		width: 700px;
+		height: 500px;
+		border: solid white 1px;
+		margin-left: 100px;
+		margin-top: 100px;
+		position: relative;
+		}
+		#mario{
+		position: absolute;
+		width: 40px;
+		height: 70px;
+		}
+		#sonic{
+		position: absolute;
+		width: 40px;
+		height: 70px;
+		}
+		#piso_1{
+		position: absolute;
+		width: 200px;
+		height: 20px;
+		background-color: white;
+		}
+		#piso_2{
+		position: absolute;
+		width: 200px;
+		height: 20px;
+		background-color: white;
+		}
+		#piso_3{
+		position: absolute;
+		width: 200px;
+		height: 20px;
+		background-color: white;
+		}
+		#piso_4{
+		position: absolute;
+		width: 200px;
+		height: 20px;
+		background-color: white;
+		}
+		#piso_5{
+		position: absolute;
+		width: 200px;
+		height: 20px;
+		background-color: white;
+		}
+		</style>
+		<script type="text/javascript">
+			const mario = document.getElementById("mario");
+			const piso_1 = document.getElementById("piso_1");
+			const piso_3 = document.getElementById("piso_3");
+			const piso_4 = document.getElementById("piso_4");
+			const btnsalto = document.getElementById("btnsalto");
+			const btnizquierda = document.getElementById("btnizquierda");
+			const btnderecha = document.getElementById("btnderecha");
+			const btngravedad_piso1 = document.getElementById("btngravedad_piso1");
+			const btngravedad_piso2 = document.getElementById("btngravedad_piso2");
+			var gravedad_top = 200;
+			var gravedad_bottom = 380;
+			var il = mario.style.top;
+			il.split("px");
+			var mario_arriba = parseInt(il);
+			var el = mario.style.left;
+			el.split("px");
+			var mario_izquierda = parseInt(el);
+			var ol = piso_1.style.marginTop;
+			ol.split("px");
+			var piso_1_pos = parseInt(ol);
+			var piso_1_pos_ar = piso_1_pos -= 70;
+			var al = piso_3.style.marginTop;
+			al.split("px");
+			var piso_3_pos = parseInt(al);
+			var piso_3_pos_ar = piso_3_pos -= 70;
+			var ul = piso_4.style.marginTop;
+			ul.split("px");
+			var piso_4_pos = parseInt(ul);
+			var piso_4_pos_ar = piso_4_pos -= 70;
+			var inicial_ab = 380;
+			var inicial_ar = 200;
+			var toc = true;
+			var it = 1;
+			var rav = true;
+			var calvin = true;
+			var falso = false;
+			var religiosa = 1;
+			var cont = 1000;
+			const constante_de_planck = 120;
+			const constante_cosmologica = 100;
+			function hola(){
+				var map = {}; // You could also use an array
+			onkeydown = onkeyup = function(e){
+			e = e || event; // to deal with IE
+			map[e.keyCode] = e.type == 'keydown';
+			console.log(map);
+			var controles = setInterval(control, cont);
+			function control(){
+			if(map["87"] == true && falso == false && calvin == true){
+				btnsalto.click();
+			}
+			if(map["65"] == true){
+				btnizquierda.click();
+				cont+=10;
+			}
+			if(map["68"] == true){
+				
+				btnderecha.click();
+				cont+=10;
+			}
+			}
+			}
+			}
+			function salto(){
+				rav = false;
+				falso = true;
+				var siu = setInterval(elto,20);
+				function elto(){
+					if(it == 1){
+						mario_arriba-=5;
+						mario.style.top = mario_arriba;
+						if(mario_arriba  == gravedad_top){
+							it = 2;
+						}
+					}
+					if(it == 2){
+						mario_arriba+=5;
+						mario.style.top = mario_arriba;
+						console.log(it);
+						console.log(mario_arriba);
+						if(mario_arriba  == gravedad_bottom){
+							it = 3;
+							console.log(it);
+						}
+					}
+					if(it == 3){
+						it = 1;
+						console.log(it);
+						clearInterval(siu);
+						falso = false;
+						rav = true;
+						if(mario_izquierda > 190 && mario_izquierda < 480 && mario_arriba == gravedad_bottom && religiosa == 2){
+							calvin = false;
+							btngravedad_piso1.click();
+						}
+						if((mario_izquierda < 230 || mario_izquierda > 430) && mario_arriba == gravedad_bottom && religiosa == 3){
+							btngravedad_piso2.click();
+							calvin = false;
+						}
+					}
+					if(mario_arriba == piso_1_pos_ar && it == 2){
+						gravedad_top -= constante_de_planck;
+						gravedad_bottom -= constante_de_planck;
+						it = 1;
+						console.log("siuuuu");
+						falso = false;
+						rav = true;
+						religiosa = 2;
+						if(mario_izquierda > 190 && mario_izquierda < 480 && mario_arriba == gravedad_bottom && religiosa == 2){
+							calvin = false;
+							btngravedad_piso1.click();
+						}
+						clearInterval(siu);
+					}
+					if(mario_arriba == piso_3_pos_ar && it == 2){
+						gravedad_top -= constante_cosmologica;
+						gravedad_bottom -= constante_cosmologica;
+						it = 1;
+						console.log("siuuuu");
+						falso = false;
+						rav = true;
+						religiosa = 3;
+						if((mario_izquierda < 230 || mario_izquierda > 430) && mario_arriba == gravedad_bottom && religiosa == 3){
+							btngravedad_piso2.click();
+							calvin = false;
+						}
+						clearInterval(siu);
+					}
+				}
+			}
+			function izquierdita(){
+				if(mario_izquierda >= 0){
+				mario_izquierda-=2;
+				mario.style.left = mario_izquierda;
+				console.log(":(");
+				if(mario_izquierda > 190 && mario_izquierda < 480 && mario_arriba == gravedad_bottom && religiosa == 2){
+				calvin = false;
+				btngravedad_piso1.click();
+			}
+				if((mario_izquierda < 230 || mario_izquierda > 430) && mario_arriba == gravedad_bottom && religiosa == 3){
+					btngravedad_piso2.click();
+					calvin = false;
+			}
+			}
+			}
+			function derecha(){
+				if(mario_izquierda <= 660){
+				mario_izquierda+=2;
+				mario.style.left = mario_izquierda;
+				console.log(":)");
+				if(mario_izquierda > 190 && mario_izquierda < 480 && mario_arriba == gravedad_bottom && religiosa == 2){
+				calvin = false;
+				btngravedad_piso1.click();
+			}
+			if((mario_izquierda < 230 || mario_izquierda > 430) && mario_arriba == gravedad_bottom && religiosa == 3){
+				btngravedad_piso2.click();
+				calvin = false;
+			}
+			}
+			}
+			
+			function grave_piso1(){
+				if(mario_izquierda > 190 && mario_izquierda < 480 && mario_arriba == gravedad_bottom && religiosa == 2){
+				falso = true;
+				religiosa = 1;
+				var tuto = setInterval(newton, 20);
+				function newton(){
+					mario_arriba+=5;
+					mario.style.top = mario_arriba;
+					if(mario_arriba == inicial_ab){
+						console.log("WATAFAK");
+						falso = false;
+						gravedad_top += constante_de_planck;
+						gravedad_bottom += constante_de_planck;
+						calvin = true;
+						clearInterval(tuto);
+					}
+				}
+			}
+			}
+			function grave_piso2(){
+				if((mario_izquierda < 230 || mario_izquierda > 430) && mario_arriba == gravedad_bottom && religiosa == 3){
+				falso = true;
+				religiosa = 2;
+				var tucson = setInterval(fiumba, 20);
+				function fiumba(){
+					if(falso == true){
+					mario_arriba+=5;
+					mario.style.top = mario_arriba;					
+					}
+					else{
+						clearInterval(tucson);
+						gravedad_top += constante_cosmologica;
+						gravedad_bottom += constante_cosmologica;
+						calvin = true;
+					}
+					if(mario_arriba == 340){
+						console.log("pqbro");
+					}
+					if(mario_arriba == piso_1_pos_ar){
+						clearInterval(tucson);
+						gravedad_top += constante_cosmologica;
+						gravedad_bottom += constante_cosmologica;
+						if(mario_izquierda > 190 && mario_izquierda < 480 && mario_arriba == gravedad_bottom && religiosa == 2){
+							btngravedad_piso1.click();
+							falso = false;
+						}
+						else{
+							calvin = true;
+						}
+						falso = false;
+					}
+				}
+			}
+			}
+			
+		</script>
+	</body>
+</html>
